@@ -17,11 +17,11 @@ class HealthCheckService:
         self._service_dao = service_dao
 
     async def execute(self) -> int:
-        s_time = time.perf_counter()
+        s_time = time.perf_counter_ns()
 
         if not await self._service_dao.redis_health_check():
             raise self.RedisIsDeadBroException
 
-        e_time = time.perf_counter()
+        e_time = time.perf_counter_ns()
 
-        return int(s_time - e_time)
+        return int(e_time - s_time)

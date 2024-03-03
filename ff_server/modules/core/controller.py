@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, Union
 
 from fastapi import APIRouter
 
@@ -9,7 +9,7 @@ router = APIRouter()
 
 
 @router.get('')
-async def health_check() -> Dict[str, str]:
+async def health_check() -> Dict[str, Union[str, int]]:
     service: HealthCheckService = HealthCheckService(service_dao=ServiceDAO())
     time_to_get_result = await service.execute()
     return {
