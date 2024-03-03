@@ -12,6 +12,8 @@ services:
       - '80:8080'
     networks:
       - ff-network
+    volumes:
+      - ./nginx/logs:/var/log/nginx
 
 networks:
   ff-network:
