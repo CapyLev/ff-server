@@ -3,7 +3,6 @@ from typing import Dict
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect, status
 from fastapi.responses import UJSONResponse
 
-from modules.communication.manager import websocket_pull_manager
 from modules.communication.services import (
     CreateRoomService,
     CreateRoomRequestData,
